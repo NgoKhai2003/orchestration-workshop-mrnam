@@ -5,7 +5,7 @@ RUN apk add --no-cache ca-certificates
 
 # Cập nhật pip lên phiên bản mới nhất
 RUN python -m pip install --upgrade pip
-
+RUN ping -c 4 google.com
 # Cài đặt Flask
 RUN pip install Flask --no-cache-dir
 
