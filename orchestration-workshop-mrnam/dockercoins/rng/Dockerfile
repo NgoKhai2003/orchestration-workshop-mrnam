@@ -1,6 +1,16 @@
 FROM python:alpine
+
+# Cài đặt các chứng chỉ SSL cần thiết
+RUN apk add --no-cache ca-certificates
+
+# Cập nhật pip lên phiên bản mới nhất
 RUN python -m pip install --upgrade pip
+
+# Cài đặt Flask
 RUN pip install Flask --no-cache-dir
+
+# Sao chép mã nguồn vào container
 COPY rng.py /
+
+# Chạy ứng dụng Python
 CMD ["python", "rng.py"]
-EXPOSE 80
