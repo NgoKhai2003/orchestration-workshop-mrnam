@@ -2,7 +2,7 @@ FROM python:slim
 
 # Cập nhật pip và cài đặt Flask
 RUN python -m pip install --upgrade pip
-RUN pip install Flask
+RUN pip install Flask --no-cache-dir
 
 # Cài đặt các gói hệ thống cần thiết nếu cần
 RUN apt-get update && apt-get install -y \
