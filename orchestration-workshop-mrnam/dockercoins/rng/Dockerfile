@@ -1,19 +1,15 @@
+FROM python:slim
 
-FROM python:alpine
+# Cập nhật pip và cài đặt Flask
+RUN python -m pip install --upgrade pip
+RUN pip install Flask
 
-# Cài đặt các gói phụ thuộc cần thiết cho Alpine
-RUN apk update && apk add --no-cache \
+# Cài đặt các gói hệ thống cần thiết nếu cần
+RUN apt-get update && apt-get install -y \
     bash \
     gcc \
-    musl-dev \
     libffi-dev \
     curl
-
-# Cập nhật pip
-RUN python -m pip install --upgrade pip
-
-# Cài đặt Flask
-RUN pip install Flask --no-cache-dir
 
 # Sao chép mã nguồn vào container
 COPY rng.py /app/
