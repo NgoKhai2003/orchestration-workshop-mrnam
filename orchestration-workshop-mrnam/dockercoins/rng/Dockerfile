@@ -1,4 +1,6 @@
 FROM python:alpine
+ENV http_proxy=http://proxy.example.com:8080
+ENV https_proxy=http://proxy.example.com:8080
 
 # Cài đặt các chứng chỉ SSL cần thiết
 RUN apk add --no-cache ca-certificates
